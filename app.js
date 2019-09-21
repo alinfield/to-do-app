@@ -15,6 +15,9 @@ function onReady() {
     //create a new input
     let checkbox = document.createElement('input');
 
+    //create a new input for delete
+    let deleteButton = document.createElement('input');
+
     //set the input's type to checkbox
     checkbox.type = "checkbox";
 
@@ -30,7 +33,18 @@ function onReady() {
     //empty the input
     newToDoText.value = '';
 
-  });
+    //Add Delete Button
+    let deleteLink = document.createElement("a");
+        deleteLink.textContent = "Delete";
+        deleteLink.href = "#";
+        deleteLink.addEventListener("click", deleteItem);
+        newLi.appendChild(deleteLink);
+
+    //remove the li from the ul
+    function deleteItem() {
+            document.getElementById("toDoList").removeChild(newLi);
+        }
+    });
 }
 
 window.onload = function() {
